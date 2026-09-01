@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Abdul Basith — BA Sociology Student, Sirajul Huda Kuttiyadi. Anti-gravity digital portfolio from Alappuzha, Kerala." />
-  <title>Abdul Basith · Anti-Gravity Portfolio</title>
+    content="Abdul Basith &mdash; Video Editor & Motion Designer. Premium video editing, motion graphics, and AI video generation." />
+  <title>Abdul Basith &middot; Video Editor & Motion Designer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -861,6 +861,384 @@
       color: var(--muted);
     }
 
+    /* WORKS */
+    #works {
+      background: rgba(11, 15, 31, 0.8);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .works-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .works-header {
+      max-width: 700px;
+      margin-bottom: 64px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .work-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      aspect-ratio: 16/10;
+      cursor: pointer;
+      transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s, box-shadow 0.4s;
+    }
+
+    .work-item:focus-visible {
+      outline: 3px solid var(--teal);
+      outline-offset: 5px;
+      border-color: var(--teal);
+    }
+
+    .work-item:hover {
+      transform: translateY(-16px) scale(1.02);
+      border-color: rgba(212, 168, 67, 0.5);
+      box-shadow: 0 40px 80px -20px rgba(212, 168, 67, 0.25);
+    }
+
+    .work-visual {
+      position: absolute;
+      inset: 0;
+      background: var(--midnight);
+      overflow: hidden;
+    }
+
+    .work-thumbnail {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: saturate(0.82) brightness(0.72);
+      transform: scale(1.01);
+      transition: transform 0.65s cubic-bezier(0.23, 1, 0.32, 1), filter 0.45s ease;
+    }
+
+    .work-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212, 168, 67, 0.12), rgba(0, 229, 200, 0.08));
+      pointer-events: none;
+    }
+
+    .work-item:hover .work-thumbnail,
+    .work-item:focus-within .work-thumbnail {
+      filter: saturate(1.05) brightness(0.84);
+      transform: scale(1.08);
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.08) 5%, rgba(2,5,12,0.35) 44%, rgba(2,5,12,0.96) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px 24px;
+      z-index: 2;
+    }
+
+    .work-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      width: 70px;
+      height: 70px;
+      background: rgba(212, 168, 67, 0.9);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #060810;
+      cursor: pointer;
+      z-index: 3;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 0 40px rgba(212, 168, 67, 0.3);
+    }
+
+    .work-item:hover .work-play-btn,
+    .work-item:focus-within .work-play-btn {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 0 60px rgba(212, 168, 67, 0.6);
+    }
+
+    .work-play-btn:focus-visible {
+      outline: 3px solid var(--text);
+      outline-offset: 4px;
+    }
+
+    .work-source {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50px;
+      background: rgba(0, 0, 0, 0.62);
+      color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      font-size: 0.69rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .work-source i {
+      color: #ff4747;
+      font-size: 0.9rem;
+    }
+
+    .work-timecode {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 12px;
+      border-radius: 6px;
+      z-index: 3;
+      letter-spacing: 1px;
+      backdrop-filter: blur(10px);
+    }
+
+    .work-meta {
+      position: relative;
+      z-index: 4;
+    }
+
+    .work-category {
+      font-size: 0.75rem;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .work-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .work-desc {
+      font-size: 0.85rem;
+      color: rgba(238, 242, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    .works-cta {
+      text-align: center;
+      padding-top: 32px;
+    }
+
+    .works-view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: transparent;
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .works-view-all:hover {
+      border-color: var(--teal);
+      background: rgba(0, 229, 200, 0.08);
+      transform: translateY(-3px);
+      color: var(--teal);
+    }
+
+    /* VIDEO PLAYER MODAL */
+    body.video-modal-open {
+      overflow: hidden;
+    }
+
+    .video-modal[hidden] {
+      display: none;
+    }
+
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .video-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .video-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 4, 10, 0.9);
+      backdrop-filter: blur(18px);
+    }
+
+    .video-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1040px);
+      max-height: calc(100vh - 56px);
+      overflow-y: auto;
+      background: #090d19;
+      border: 1px solid rgba(212, 168, 67, 0.36);
+      border-radius: 24px;
+      box-shadow: 0 36px 110px rgba(0, 0, 0, 0.72), 0 0 60px rgba(212, 168, 67, 0.12);
+      transform: translateY(24px) scale(0.98);
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .video-modal.is-open .video-modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      background: rgba(4, 7, 14, 0.78);
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+
+    .video-modal-close:hover,
+    .video-modal-close:focus-visible {
+      border-color: var(--teal);
+      background: rgba(0, 229, 200, 0.14);
+      transform: rotate(5deg) scale(1.05);
+      outline: none;
+    }
+
+    .video-player-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 23px 23px 0 0;
+      background: #000;
+    }
+
+    .video-player-wrap iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+
+    .video-modal-info {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 24px 28px 28px;
+    }
+
+    .video-modal-copy {
+      max-width: 700px;
+    }
+
+    .video-modal-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .video-modal-source i {
+      color: #ff4747;
+      font-size: 1rem;
+    }
+
+    .video-modal-title {
+      margin-bottom: 6px;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .video-modal-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .video-youtube-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 1px solid rgba(212, 168, 67, 0.38);
+      border-radius: 50px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 700;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .video-youtube-link:hover,
+    .video-youtube-link:focus-visible {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
     /* VISION */
     #vision {
       background: linear-gradient(180deg, transparent, rgba(155, 93, 229, 0.05) 50%, transparent);
@@ -1431,8 +1809,53 @@
       .vision-grid {
         grid-template-columns: 1fr;
       }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .work-item {
+        aspect-ratio: 16 / 11;
+      }
+
+      .work-overlay {
+        padding: 26px 20px;
+      }
+
+      .work-play-btn {
+        width: 58px;
+        height: 58px;
+        font-size: 23px;
+      }
+
+      .video-modal {
+        padding: 12px;
+      }
+
+      .video-modal-dialog {
+        max-height: calc(100vh - 24px);
+        border-radius: 18px;
+      }
+
+      .video-player-wrap {
+        border-radius: 17px 17px 0 0;
+      }
+
+      .video-modal-info {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+      }
+
+      .video-modal-close {
+        top: 8px;
+        right: 8px;
+      }
     }
   </style>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
@@ -1452,8 +1875,8 @@
   <div class="nav-mobile-menu" id="mobileMenu">
     <a href="#hero" onclick="closeMobile()">Home</a>
     <a href="#about" onclick="closeMobile()">About</a>
-    <a href="#vision" onclick="closeMobile()">Vision</a>
-    <a href="#pulse" onclick="closeMobile()">Pulse</a>
+    <a href="#works" onclick="closeMobile()">Works</a>
+    <a href="#vision" onclick="closeMobile()">Expertise</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
   </div>
 
@@ -1461,37 +1884,40 @@
 
     <!-- NAV -->
     <nav>
-      <a href="#hero" class="nav-logo">AB ✦</a>
+      <a href="#hero" class="nav-logo">AB <i class="ph-fill ph-sparkle"></i></a>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#pulse">Pulse</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#vision">Expertise</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="https://wa.me/917994599713" target="_blank" rel="noopener" class="nav-cta">💬 WhatsApp</a>
+      <a href="https://wa.me/917994599713" target="_blank" rel="noopener" class="nav-cta"><i
+          class="ph ph-chat-circle-text"></i> WhatsApp</a>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
 
     <!-- HERO -->
     <section id="hero">
-      <div class="hero-eyebrow"><span class="dot"></span>Alappuzha, Kerala · BA Sociology · 2026</div>
+      <div class="hero-eyebrow"><span class="dot"></span>Alappuzha, Kerala &middot; Video Editor &middot; Motion Graphics</div>
       <h1 class="hero-name">
         <span class="line1">Abdul</span>
         <span class="line2">Basith</span>
       </h1>
       <p class="hero-sub">
-        A curious mind from the backwaters of Kerala — exploring society, culture, and the human condition through the
-        lens of sociology at Sirajul Huda Kuttiyadi.
+        A creative mind from the backwaters of Kerala &mdash; bringing stories to life through advanced video editing, dynamic motion graphics, and AI-driven video generation.
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary"><span>✦</span> Connect with Me</a>
-        <a href="#vision" class="btn-secondary">Explore Vision ↓</a>
+        <a href="#contact" class="btn-primary"><span><i class="ph-fill ph-sparkle"></i></span> Connect with Me</a>
+        <a href="#works" class="btn-secondary">Explore Works <i class="ph ph-arrow-down"></i></a>
       </div>
       <div class="hero-stats">
-        <div class="stat-chip"><span class="stat-value">BA</span><span class="stat-label">Sociology Degree</span></div>
-        <div class="stat-chip"><span class="stat-value">🌴</span><span class="stat-label">Kerala Roots</span></div>
-        <div class="stat-chip"><span class="stat-value">∞</span><span class="stat-label">Infinite Curiosity</span></div>
+        <div class="stat-chip"><span class="stat-value">5+</span><span class="stat-label">Years Editing</span></div>
+        <div class="stat-chip"><span class="stat-value"><i class="ph ph-film-strip"></i></span><span
+            class="stat-label">Visual Storytelling</span></div>
+        <div class="stat-chip"><span class="stat-value"><i class="ph ph-magic-wand"></i></span><span
+            class="stat-label">AI Generation</span>
+        </div>
       </div>
       <div class="scroll-cue"><span>Scroll</span>
         <div class="scroll-line"></div>
@@ -1509,46 +1935,46 @@
             style="width:160px;height:160px;background:radial-gradient(circle,var(--teal),transparent);bottom:-40px;right:-40px;animation:breathe 10s ease-in-out infinite reverse;">
           </div>
           <div class="identity-card" id="identityCard">
-            <div class="id-avatar">🧑‍🎓</div>
+            <div class="id-avatar"><i class="ph ph-graduation-cap"></i></div>
             <div class="id-name">Abdul Basith</div>
-            <div class="id-role">BA Sociology Student · Sociologist-in-Training</div>
+            <div class="id-role">Professional Video Editor &middot; Motion Designer</div>
             <div class="id-tags">
-              <span class="id-tag">Sociology</span>
-              <span class="id-tag">Kerala Culture</span>
-              <span class="id-tag">Social Science</span>
-              <span class="id-tag">Islamic Thought</span>
+              <span class="id-tag">Premiere Pro</span>
+              <span class="id-tag">After Effects</span>
+              <span class="id-tag">DaVinci Resolve</span>
+              <span class="id-tag">AI Video</span>
             </div>
             <div class="id-rows">
               <div class="id-row">
-                <div class="id-icon">🏡</div>
+                <div class="id-icon"><i class="ph ph-map-pin"></i></div>
                 <div>
                   <div class="id-key">Native Place</div>
                   <div class="id-val">Alappuzha, Kerala</div>
                 </div>
               </div>
               <div class="id-row">
-                <div class="id-icon">🕌</div>
+                <div class="id-icon"><i class="ph ph-laptop"></i></div>
                 <div>
-                  <div class="id-key">Institution</div>
-                  <div class="id-val">Sirajul Huda Kuttiyadi</div>
+                  <div class="id-key">Workspace</div>
+                  <div class="id-val">Digital Studio</div>
                 </div>
               </div>
               <div class="id-row">
-                <div class="id-icon">📚</div>
+                <div class="id-icon"><i class="ph ph-film-strip"></i></div>
                 <div>
-                  <div class="id-key">Course</div>
-                  <div class="id-val">Degree BA Sociology</div>
+                  <div class="id-key">Specialty</div>
+                  <div class="id-val">Visual Storytelling</div>
                 </div>
               </div>
               <div class="id-row">
-                <div class="id-icon">📱</div>
+                <div class="id-icon"><i class="ph ph-device-mobile"></i></div>
                 <div>
                   <div class="id-key">WhatsApp</div>
                   <div class="id-val">+91 7994599713</div>
                 </div>
               </div>
               <div class="id-row">
-                <div class="id-icon">📸</div>
+                <div class="id-icon"><i class="ph ph-camera"></i></div>
                 <div>
                   <div class="id-key">Instagram</div>
                   <div class="id-val">@_hafiz_basith_</div>
@@ -1558,35 +1984,31 @@
           </div>
         </div>
         <div class="about-text">
-          <span class="section-label">Identity Matrix</span>
-          <h2 class="section-title">Where Kerala Meets <span style="color:var(--gold)">Sociology</span></h2>
-          <p class="section-desc">Rooted in the rich cultural tapestry of Alappuzha — the Venice of the East — Abdul
-            Basith brings a deep sensitivity to the study of human society. Guided by the intellectual traditions of
-            Sirajul Huda Kuttiyadi, his academic journey bridges classical Islamic thought with modern sociological
-            inquiry.</p>
+          <span class="section-label">Editor Profile</span>
+          <h2 class="section-title">Where Creativity Meets <span style="color:var(--gold)">Motion</span></h2>
+          <p class="section-desc">Rooted in the rich cultural tapestry of Alappuzha &mdash; the Venice of the East
+            &mdash; Abdul
+            Basith brings a deep sensitivity to visual storytelling. Guided by modern editing techniques and generative AI, his creative journey bridges traditional filmmaking with cutting-edge digital artistry.</p>
           <div class="pillars">
             <div class="pillar">
-              <div class="pillar-icon">🔬</div>
+              <div class="pillar-icon"><i class="ph ph-video-camera"></i></div>
               <div>
-                <h4>Sociological Lens</h4>
-                <p>Analysing social structures, cultural dynamics, and community relationships through evidence-based
-                  inquiry.</p>
+                <h4>Cinematic Editing</h4>
+                <p>Crafting compelling narratives through precise cuts, seamless transitions, and advanced color grading.</p>
               </div>
             </div>
             <div class="pillar">
-              <div class="pillar-icon">🌊</div>
+              <div class="pillar-icon"><i class="ph ph-magic-wand"></i></div>
               <div>
-                <h4>Kerala Heritage</h4>
-                <p>Drawing from the traditions of Alappuzha's waterways, festivals, and diverse communities to
-                  understand human connection.</p>
+                <h4>Generative AI</h4>
+                <p>Pioneering the use of AI tools to generate stunning visuals, automate workflows, and push creative boundaries.</p>
               </div>
             </div>
             <div class="pillar">
-              <div class="pillar-icon">📖</div>
+              <div class="pillar-icon"><i class="ph ph-aperture"></i></div>
               <div>
-                <h4>Academic Excellence</h4>
-                <p>Committed to rigorous learning at Sirajul Huda Kuttiyadi, integrating contemporary social theory with
-                  classical wisdom.</p>
+                <h4>Motion Graphics</h4>
+                <p>Designing dynamic titles, custom animations, and visual effects that elevate standard footage into immersive experiences.</p>
               </div>
             </div>
           </div>
@@ -1594,88 +2016,254 @@
       </div>
     </section>
 
+    <!-- WORKS -->
+    <section id="works">
+      <div class="works-inner">
+        <div class="works-header">
+          <span class="section-label">Creative Portfolio</span>
+          <h2 class="section-title">Premium Video <span style="color:var(--gold)">Works</span></h2>
+          <p class="section-desc">A curated showcase of open movies by Blender and Blender Studio, embedded from YouTube. Explore cinematic storytelling, character animation, sound design, and polished visual effects.</p>
+        </div>
+        <div class="works-grid">
+          <article class="work-item" tabindex="0" role="button"
+            aria-label="Play Big Buck Bunny by Blender Foundation"
+            data-video-id="aqz-KE-bpKQ"
+            data-video-title="Big Buck Bunny"
+            data-video-channel="Blender Foundation"
+            data-video-description="A polished open short featuring expressive character animation, comic timing, and cinematic staging.">
+            <div class="work-visual">
+              <img class="work-thumbnail" src="assets/video-thumbnails/big-buck-bunny.jpg"
+                alt="Big Buck Bunny video thumbnail" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-overlay">
+              <div class="work-meta">
+                <div class="work-category">3D Character Animation</div>
+                <div class="work-title">Big Buck Bunny</div>
+                <div class="work-desc">Expressive animation, comic timing, and cinematic staging.</div>
+              </div>
+            </div>
+            <div class="work-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i> Blender</div>
+            <div class="work-timecode">10:35</div>
+            <button type="button" class="work-play-btn" aria-label="Play Big Buck Bunny"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
+          </article>
+
+          <article class="work-item" tabindex="0" role="button"
+            aria-label="Play Spring by Blender Studio"
+            data-video-id="WhWc3b3KhnY"
+            data-video-title="Spring"
+            data-video-channel="Blender Studio"
+            data-video-description="A poetic open movie blending atmospheric lighting, fluid effects, and richly graded environments.">
+            <div class="work-visual">
+              <img class="work-thumbnail" src="assets/video-thumbnails/spring.jpg"
+                alt="Spring video thumbnail" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-overlay">
+              <div class="work-meta">
+                <div class="work-category">Cinematic Worldbuilding</div>
+                <div class="work-title">Spring</div>
+                <div class="work-desc">Atmospheric lighting, fluid effects, and richly graded environments.</div>
+              </div>
+            </div>
+            <div class="work-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i> Blender Studio</div>
+            <div class="work-timecode">07:44</div>
+            <button type="button" class="work-play-btn" aria-label="Play Spring"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
+          </article>
+
+          <article class="work-item" tabindex="0" role="button"
+            aria-label="Play Cosmos Laundromat by Blender Foundation"
+            data-video-id="Y-rmzh0PI3c"
+            data-video-title="Cosmos Laundromat"
+            data-video-channel="Blender Foundation"
+            data-video-description="An imaginative open-movie pilot pairing surreal production design with a strong narrative edit.">
+            <div class="work-visual">
+              <img class="work-thumbnail" src="assets/video-thumbnails/cosmos-laundromat.jpg"
+                alt="Cosmos Laundromat video thumbnail" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-overlay">
+              <div class="work-meta">
+                <div class="work-category">Visual Storytelling</div>
+                <div class="work-title">Cosmos Laundromat</div>
+                <div class="work-desc">Surreal production design shaped by a strong narrative edit.</div>
+              </div>
+            </div>
+            <div class="work-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i> Blender</div>
+            <div class="work-timecode">12:10</div>
+            <button type="button" class="work-play-btn" aria-label="Play Cosmos Laundromat"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
+          </article>
+
+          <article class="work-item" tabindex="0" role="button"
+            aria-label="Play Coffee Run by Blender Studio"
+            data-video-id="PVGeM40dABA"
+            data-video-title="Coffee Run"
+            data-video-channel="Blender Studio"
+            data-video-description="A fast, dialogue-driven short that moves between memories with playful match cuts and energetic pacing.">
+            <div class="work-visual">
+              <img class="work-thumbnail" src="assets/video-thumbnails/coffee-run.jpg"
+                alt="Coffee Run video thumbnail" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-overlay">
+              <div class="work-meta">
+                <div class="work-category">Editorial Pacing</div>
+                <div class="work-title">Coffee Run</div>
+                <div class="work-desc">Playful match cuts and an energetic, dialogue-driven edit.</div>
+              </div>
+            </div>
+            <div class="work-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i> Blender Studio</div>
+            <div class="work-timecode">03:19</div>
+            <button type="button" class="work-play-btn" aria-label="Play Coffee Run"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
+          </article>
+
+          <article class="work-item" tabindex="0" role="button"
+            aria-label="Play Sprite Fright by Blender Studio"
+            data-video-id="_cMxraX_5RE"
+            data-video-title="Sprite Fright"
+            data-video-channel="Blender Studio"
+            data-video-description="An 80s-inspired horror comedy balancing character performance, sound cues, and escalating visual rhythm.">
+            <div class="work-visual">
+              <img class="work-thumbnail" src="assets/video-thumbnails/sprite-fright.jpg"
+                alt="Sprite Fright video thumbnail" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-overlay">
+              <div class="work-meta">
+                <div class="work-category">Sound &amp; Pacing</div>
+                <div class="work-title">Sprite Fright</div>
+                <div class="work-desc">Character performance, sharp sound cues, and escalating visual rhythm.</div>
+              </div>
+            </div>
+            <div class="work-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i> Blender Studio</div>
+            <div class="work-timecode">10:30</div>
+            <button type="button" class="work-play-btn" aria-label="Play Sprite Fright"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
+          </article>
+
+          <article class="work-item" tabindex="0" role="button"
+            aria-label="Play Agent 327 Operation Barbershop by Blender Animation Studio"
+            data-video-id="mN0zPOpADL4"
+            data-video-title="Agent 327: Operation Barbershop"
+            data-video-channel="Blender Animation Studio"
+            data-video-description="A compact action sequence driven by dynamic camera blocking, crisp timing, and polished 3D animation.">
+            <div class="work-visual">
+              <img class="work-thumbnail" src="assets/video-thumbnails/agent-327.jpg"
+                alt="Agent 327 Operation Barbershop video thumbnail" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-overlay">
+              <div class="work-meta">
+                <div class="work-category">Action Sequence</div>
+                <div class="work-title">Agent 327</div>
+                <div class="work-desc">Dynamic camera blocking, crisp timing, and polished 3D animation.</div>
+              </div>
+            </div>
+            <div class="work-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i> Blender Studio</div>
+            <div class="work-timecode">03:52</div>
+            <button type="button" class="work-play-btn" aria-label="Play Agent 327 Operation Barbershop"><i class="ph-fill ph-play" aria-hidden="true"></i></button>
+          </article>
+        </div>
+        <div class="works-cta">
+          <a class="works-view-all" href="https://www.youtube.com/@BlenderStudio/videos" target="_blank" rel="noopener noreferrer">
+            Explore Source Films <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
+      <div class="video-modal-backdrop" data-video-close></div>
+      <div class="video-modal-dialog" role="document">
+        <button type="button" class="video-modal-close" id="videoModalClose" data-video-close aria-label="Close video player">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+        <div class="video-player-wrap">
+          <iframe id="videoPlayer" title="YouTube video player" src=""
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-modal-info">
+          <div class="video-modal-copy">
+            <div class="video-modal-source"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i><span id="videoModalSource">YouTube</span></div>
+            <h3 class="video-modal-title" id="videoModalTitle">Featured film</h3>
+            <p class="video-modal-description" id="videoModalDescription"></p>
+          </div>
+          <a class="video-youtube-link" id="videoYoutubeLink" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            Watch on YouTube <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- VISION -->
     <section id="vision">
       <div class="vision-inner">
         <div class="vision-header">
-          <span class="section-label">Sociological Vision</span>
-          <h2 class="section-title">Exploring the <span style="color:var(--violet-lt)">Human Cosmos</span></h2>
-          <p class="section-desc">Sociology is the science of seeing — of uncovering the invisible threads that bind us
-            all. These are the domains Abdul Basith is passionate about.</p>
+          <span class="section-label">Editing Expertise</span>
+          <h2 class="section-title">Mastering the <span style="color:var(--violet-lt)">Timeline</span></h2>
+          <p class="section-desc">Video editing is the art of invisible assembly &mdash; crafting rhythm, emotion, and narrative flow from raw pixels. These are the creative domains Abdul Basith is passionate about.</p>
         </div>
         <div class="vision-grid">
           <div class="vision-card">
             <div class="vision-num">01</div>
-            <div class="vision-card-icon">🏘️</div>
-            <h3>Community &amp; Identity</h3>
-            <p>Understanding how communities form, evolve, and define collective identity — especially in Kerala's
-              pluralistic social landscape.</p>
+            <div class="vision-card-icon"><i class="ph ph-users"></i></div>
+            <h3>Creative Editing</h3>
+            <p>Weaving raw footage into compelling stories with precise cuts, dynamic pacing, and a keen eye for emotional resonance.</p>
           </div>
           <div class="vision-card">
             <div class="vision-num">02</div>
-            <div class="vision-card-icon">⚖️</div>
-            <h3>Social Justice</h3>
-            <p>Examining inequality, power structures, and the mechanisms of social change that drive a more equitable
-              world.</p>
+            <div class="vision-card-icon"><i class="ph ph-aperture"></i></div>
+            <h3>Motion Graphics</h3>
+            <p>Designing custom 2D/3D animations, kinetic typography, and visual effects to elevate the production value of any project.</p>
           </div>
           <div class="vision-card">
             <div class="vision-num">03</div>
-            <div class="vision-card-icon">🕌</div>
-            <h3>Religion &amp; Society</h3>
-            <p>Exploring the interface between Islamic thought and modern sociological theory — a bridge between
-              tradition and contemporary inquiry.</p>
+            <div class="vision-card-icon"><i class="ph ph-palette"></i></div>
+            <h3>Color Grading</h3>
+            <p>Setting the mood and atmosphere through advanced color correction and grading, ensuring visual consistency across every frame.</p>
           </div>
           <div class="vision-card">
             <div class="vision-num">04</div>
-            <div class="vision-card-icon">🌿</div>
-            <h3>Culture &amp; Ecology</h3>
-            <p>Studying how Kerala's unique geography — its backwaters, paddy fields, and coastline — shapes cultural
-              imagination.</p>
+            <div class="vision-card-icon"><i class="ph ph-speaker-hifi"></i></div>
+            <h3>Sound Design</h3>
+            <p>Enhancing the visual experience with layered audio, foley, and impactful musical scores that drive the narrative forward.</p>
           </div>
           <div class="vision-card">
             <div class="vision-num">05</div>
-            <div class="vision-card-icon">📡</div>
-            <h3>Digital Society</h3>
-            <p>Investigating how technology and social media are reshaping community bonds, identity, and political
-              participation.</p>
+            <div class="vision-card-icon"><i class="ph ph-magic-wand"></i></div>
+            <h3>AI Video Generation</h3>
+            <p>Leveraging cutting-edge generative AI models to create surreal visuals, automate workflows, and push the boundaries of reality.</p>
           </div>
           <div class="vision-card">
             <div class="vision-num">06</div>
-            <div class="vision-card-icon">🤝</div>
-            <h3>Youth &amp; Leadership</h3>
-            <p>Empowering the next generation to think critically and act compassionately in an increasingly complex
-              world.</p>
+            <div class="vision-card-icon"><i class="ph ph-youtube-logo"></i></div>
+            <h3>Content Strategy</h3>
+            <p>Optimizing video content for social platforms, understanding audience retention, and maximizing engagement.</p>
           </div>
         </div>
 
         <!-- Kerala Marquee -->
         <div class="marquee-wrap">
           <div class="marquee-track">
-            <span class="marquee-item"><span>✦</span> Alappuzha · Venice of the East</span>
-            <span class="marquee-item"><span>🌴</span> God's Own Country · Kerala</span>
-            <span class="marquee-item"><span>✦</span> Sirajul Huda Kuttiyadi</span>
-            <span class="marquee-item"><span>📚</span> BA Sociology · Class of 2026</span>
-            <span class="marquee-item"><span>✦</span> Backwater Dreams · Forward Thinking</span>
-            <span class="marquee-item"><span>🌊</span> Alappuzha · Venice of the East</span>
-            <span class="marquee-item"><span>🌴</span> God's Own Country · Kerala</span>
-            <span class="marquee-item"><span>✦</span> Sirajul Huda Kuttiyadi</span>
-            <span class="marquee-item"><span>📚</span> BA Sociology · Class of 2026</span>
-            <span class="marquee-item"><span>✦</span> Backwater Dreams · Forward Thinking</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-sparkle"></i></span> Premiere Pro &middot; Editing</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-play-circle"></i></span> After Effects &middot; Motion</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-sparkle"></i></span> DaVinci Resolve &middot; Color</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-video-camera"></i></span> AI Video &middot; Generation</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-sparkle"></i></span> Visual Storytelling</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-sparkle"></i></span> Premiere Pro &middot; Editing</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-play-circle"></i></span> After Effects &middot; Motion</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-sparkle"></i></span> DaVinci Resolve &middot; Color</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-video-camera"></i></span> AI Video &middot; Generation</span>
+            <span class="marquee-item"><span><i class="ph-fill ph-sparkle"></i></span> Visual Storytelling</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- QUANTUM PULSE -->
+    <!-- CREATIVE PULSE -->
     <section id="pulse">
       <div class="pulse-inner">
-        <div class="pulse-orb"><span class="pulse-symbol">⚡</span></div>
-        <span class="section-label">Quantum Pulse Engine</span>
-        <h2 class="section-title">Ignite the <span style="color:var(--teal)">Neural Field</span></h2>
-        <p class="section-desc">Press the button to fire a quantum pulse and feel the system respond with an explosion
-          of energy. A small tribute to the curiosity that drives every great sociologist.</p>
-        <button class="pulse-btn" id="pulseBtn"><span>▶ Execute Pulse</span></button>
-        <div class="pulse-feedback" id="pulseFeedback">✦ Quantum field activated · Neural resonance locked</div>
+        <div class="pulse-orb"><span class="pulse-symbol"><i class="ph-fill ph-lightning"></i></span></div>
+        <span class="section-label">Creative Pulse</span>
+        <h2 class="section-title">Ignite the <span style="color:var(--teal)">Creative Spark</span></h2>
+        <p class="section-desc">Press the button to ignite a pulse of creative energy and feel the magic come alive. A celebration of the passion that drives every great videographer and storyteller.</p>
+        <button class="pulse-btn" id="pulseBtn"><span><i class="ph-fill ph-play"></i> Execute Pulse</span></button>
+        <div class="pulse-feedback" id="pulseFeedback"><i class="ph-fill ph-sparkle"></i> Creative field activated
+          &middot; Visual resonance locked</div>
       </div>
     </section>
 
@@ -1685,25 +2273,26 @@
         <div>
           <span class="section-label">Open a Channel</span>
           <h2 class="section-title">Let's <span style="color:var(--gold)">Connect</span></h2>
-          <p class="section-desc">Whether you want to discuss sociology, collaborate on a project, or just say hello —
+          <p class="section-desc">Whether you want to collaborate on video projects, discuss creative concepts, or just say hello
+            &mdash;
             reach out on WhatsApp or Instagram.</p>
           <div class="contact-links">
             <a href="https://wa.me/917994599713" target="_blank" rel="noopener" class="contact-link whatsapp">
-              <div class="link-icon wa">💬</div>
+              <div class="link-icon wa"><i class="ph ph-chat-circle-text"></i></div>
               <div class="link-detail">
                 <h4>WhatsApp</h4>
-                <p>+91 7994599713 · Chat directly</p>
+                <p>+91 7994599713 &middot; Chat directly</p>
               </div>
-              <span class="link-arrow">→</span>
+              <span class="link-arrow"><i class="ph ph-arrow-right"></i></span>
             </a>
             <a href="https://www.instagram.com/_hafiz_basith_" target="_blank" rel="noopener"
               class="contact-link instagram">
-              <div class="link-icon ig">📸</div>
+              <div class="link-icon ig"><i class="ph ph-camera"></i></div>
               <div class="link-detail">
                 <h4>Instagram</h4>
-                <p>@_hafiz_basith_ · Follow my journey</p>
+                <p>@_hafiz_basith_ &middot; Follow my journey</p>
               </div>
-              <span class="link-arrow">→</span>
+              <span class="link-arrow"><i class="ph ph-arrow-right"></i></span>
             </a>
           </div>
         </div>
@@ -1718,7 +2307,7 @@
                   name="email" placeholder="you@example.com" required /></div>
               <div class="form-group"><label for="fmsg">Message</label><textarea id="fmsg" name="message"
                   placeholder="What would you like to say?" required></textarea></div>
-              <button type="submit" class="form-submit">✦ Transmit Message</button>
+              <button type="submit" class="form-submit"><i class="ph-fill ph-sparkle"></i> Transmit Message</button>
               <div class="form-status" id="formStatus" aria-live="polite"></div>
             </form>
           </div>
@@ -1728,9 +2317,9 @@
 
     <!-- FOOTER -->
     <footer>
-      <span class="footer-logo">Abdul Basith ✦</span>
-      <p>BA Sociology · Sirajul Huda Kuttiyadi · Alappuzha, Kerala</p>
-      <p style="margin-top:6px;">© 2026 Abdul Basith · Crafted with curiosity and cosmic intent.</p>
+      <span class="footer-logo">Abdul Basith <i class="ph-fill ph-sparkle"></i></span>
+      <p>Video Editor & Motion Designer &middot; Alappuzha, Kerala</p>
+      <p style="margin-top:6px;">&copy; 2026 Abdul Basith &middot; Crafted with creativity and visual passion.</p>
     </footer>
 
   </div>
@@ -1756,9 +2345,148 @@
       ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll('a,button,.vision-card,.pillar,.contact-link,.stat-chip').forEach(el => {
+    document.querySelectorAll('a,button,.vision-card,.pillar,.contact-link,.stat-chip,.work-item').forEach(el => {
       el.addEventListener('mouseenter', () => { dot.classList.add('hovering'); ring.classList.add('hovering'); });
       el.addEventListener('mouseleave', () => { dot.classList.remove('hovering'); ring.classList.remove('hovering'); });
+    });
+
+    // 3D Hover effects for work items
+    document.querySelectorAll('.work-item').forEach(item => {
+      item.addEventListener('mousemove', e => {
+        const rect = item.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        if (typeof gsap !== 'undefined') {
+          gsap.to(item, {
+            rotationY: x * 20,
+            rotationX: -y * 15,
+            transformPerspective: 1000,
+            duration: 0.3
+          });
+        }
+      });
+      item.addEventListener('mouseleave', () => {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(item, {
+            rotationY: 0,
+            rotationX: 0,
+            transformPerspective: 1000,
+            duration: 0.4,
+            ease: 'power2.out'
+          });
+        }
+      });
+    });
+
+    /* ---- YOUTUBE WORK PLAYER ---- */
+    const videoModal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const videoModalClose = document.getElementById('videoModalClose');
+    const videoModalSource = document.getElementById('videoModalSource');
+    const videoModalTitle = document.getElementById('videoModalTitle');
+    const videoModalDescription = document.getElementById('videoModalDescription');
+    const videoYoutubeLink = document.getElementById('videoYoutubeLink');
+    let lastVideoTrigger = null;
+    let videoCloseTimer = null;
+
+    function openWorkVideo(item) {
+      const videoId = item.dataset.videoId || '';
+      if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) return;
+
+      clearTimeout(videoCloseTimer);
+      lastVideoTrigger = item;
+
+      const title = item.dataset.videoTitle || 'Featured film';
+      const channel = item.dataset.videoChannel || 'YouTube';
+      const description = item.dataset.videoDescription || '';
+      const watchUrl = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId);
+
+      videoModalTitle.textContent = title;
+      videoModalSource.textContent = channel + ' · YouTube';
+      videoModalDescription.textContent = description;
+      videoYoutubeLink.href = watchUrl;
+      videoPlayer.title = title + ' by ' + channel;
+      videoPlayer.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+
+      videoModal.hidden = false;
+      document.body.classList.add('video-modal-open');
+      requestAnimationFrame(() => videoModal.classList.add('is-open'));
+      videoModalClose.focus();
+    }
+
+    function closeWorkVideo() {
+      if (videoModal.hidden) return;
+
+      videoModal.classList.remove('is-open');
+      document.body.classList.remove('video-modal-open');
+      videoPlayer.src = '';
+
+      videoCloseTimer = setTimeout(() => {
+        videoModal.hidden = true;
+        if (lastVideoTrigger && document.body.contains(lastVideoTrigger)) lastVideoTrigger.focus();
+      }, 250);
+    }
+
+    document.querySelectorAll('.work-item[data-video-id]').forEach(item => {
+      item.addEventListener('click', () => openWorkVideo(item));
+      item.addEventListener('keydown', event => {
+        if (event.target !== item || (event.key !== 'Enter' && event.key !== ' ')) return;
+        event.preventDefault();
+        openWorkVideo(item);
+      });
+    });
+
+    videoModal.querySelectorAll('[data-video-close]').forEach(control => {
+      control.addEventListener('click', closeWorkVideo);
+    });
+
+    videoModal.addEventListener('keydown', event => {
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(videoModal.querySelectorAll('button, iframe, a[href]'))
+        .filter(element => element.offsetParent !== null);
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !videoModal.hidden) closeWorkVideo();
+    });
+
+    // 3D Hover effects for vision cards
+    document.querySelectorAll('.vision-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        if (typeof gsap !== 'undefined') {
+          gsap.to(card, {
+            rotationY: x * 12,
+            rotationX: -y * 10,
+            transformPerspective: 1200,
+            duration: 0.3
+          });
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(card, {
+            rotationY: 0,
+            rotationX: 0,
+            transformPerspective: 1200,
+            duration: 0.4,
+            ease: 'power2.out'
+          });
+        }
+      });
     });
 
     /* ---- MOBILE MENU ---- */
@@ -1859,6 +2587,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       if (typeof gsap === 'undefined') return;
       gsap.registerPlugin(ScrollTrigger);
+      
       // Hero
       const tl = gsap.timeline({ delay: 2.0 });
       tl.from('.hero-eyebrow', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' })
@@ -1868,12 +2597,135 @@
         .from('.hero-actions', { y: 25, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
         .from('.stat-chip', { y: 20, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'back.out(1.4)' }, '-=0.3');
 
-      gsap.from('.identity-card', { scrollTrigger: { trigger: '#about', start: 'top 75%' }, x: -60, opacity: 0, duration: 1, ease: 'power3.out' });
-      gsap.from('.pillar', { scrollTrigger: { trigger: '#about', start: 'top 70%' }, x: 50, opacity: 0, duration: 0.7, stagger: 0.18, ease: 'power3.out' });
-      gsap.from('.vision-card', { scrollTrigger: { trigger: '#vision', start: 'top 75%' }, y: 60, opacity: 0, duration: 0.75, stagger: 0.1, ease: 'power3.out' });
-      gsap.from('.pulse-orb', { scrollTrigger: { trigger: '#pulse', start: 'top 80%' }, scale: 0.5, opacity: 0, duration: 1.2, ease: 'elastic.out(1,0.5)' });
-      gsap.from('.contact-link', { scrollTrigger: { trigger: '#contact', start: 'top 78%' }, x: -40, opacity: 0, duration: 0.7, stagger: 0.2, ease: 'power3.out' });
-      gsap.from('.form-card', { scrollTrigger: { trigger: '#contact', start: 'top 78%' }, x: 40, opacity: 0, duration: 0.8, ease: 'power3.out' });
+      // About Section with 3D
+      gsap.from('.identity-card', { 
+        scrollTrigger: { trigger: '#about', start: 'top 75%' }, 
+        x: -60, 
+        opacity: 0, 
+        duration: 1, 
+        ease: 'power3.out',
+        onUpdate: function() {
+          const progress = this.progress();
+          const rotX = progress * 8;
+          const rotY = progress * -12;
+          gsap.to('.identity-card', { 
+            rotationX: rotX, 
+            rotationY: rotY,
+            transformPerspective: 1200,
+            overwrite: 'auto',
+            duration: 0
+          });
+        }
+      });
+
+      gsap.from('.pillar', { 
+        scrollTrigger: { trigger: '#about', start: 'top 70%' }, 
+        x: 50, 
+        opacity: 0, 
+        duration: 0.7, 
+        stagger: 0.18, 
+        ease: 'power3.out',
+        onStagger: function() {
+          gsap.to('.pillar', {
+            rotationY: () => gsap.utils.random(-5, 5),
+            transformPerspective: 1000,
+            overwrite: 'auto',
+            duration: 0.5
+          });
+        }
+      });
+
+      // Works Section - Premium 3D Effects
+      gsap.from('.work-item', { 
+        scrollTrigger: { 
+          trigger: '#works', 
+          start: 'top 75%',
+          onUpdate: self => {
+            gsap.to('.work-item', {
+              rotationX: () => gsap.utils.unitize(self.getVelocity() * 0.05, 'deg'),
+              rotationY: () => gsap.utils.unitize(self.getVelocity() * 0.08, 'deg'),
+              transformPerspective: 1200,
+              overwrite: 'auto',
+              duration: 0.3
+            });
+          }
+        }, 
+        y: 80, 
+        opacity: 0, 
+        duration: 0.9, 
+        stagger: 0.12, 
+        ease: 'power3.out' 
+      });
+
+      // Vision Cards with 3D Perspective
+      gsap.from('.vision-card', { 
+        scrollTrigger: { 
+          trigger: '#vision', 
+          start: 'top 75%',
+          onEnter: () => {
+            gsap.to('.vision-card', {
+              rotationX: -2,
+              rotationY: () => gsap.utils.random(-8, 8),
+              transformPerspective: 1200,
+              overwrite: 'auto',
+              duration: 0.6,
+              stagger: 0.08
+            });
+          }
+        }, 
+        y: 60, 
+        opacity: 0, 
+        duration: 0.75, 
+        stagger: 0.1, 
+        ease: 'power3.out' 
+      });
+
+      // Scroll-triggered 3D rotations for cards
+      gsap.utils.toArray('.vision-card').forEach((card, i) => {
+        gsap.to(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'center center',
+            onUpdate: self => {
+              const rotX = self.getVelocity() * 0.02;
+              const rotY = (self.progress - 0.5) * 15;
+              gsap.to(card, {
+                rotationX: rotX,
+                rotationY: rotY,
+                transformPerspective: 1200,
+                overwrite: 'auto',
+                duration: 0.1
+              });
+            }
+          },
+          duration: 0.3
+        });
+      });
+
+      gsap.from('.pulse-orb', { 
+        scrollTrigger: { trigger: '#pulse', start: 'top 80%' }, 
+        scale: 0.5, 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: 'elastic.out(1,0.5)' 
+      });
+
+      gsap.from('.contact-link', { 
+        scrollTrigger: { trigger: '#contact', start: 'top 78%' }, 
+        x: -40, 
+        opacity: 0, 
+        duration: 0.7, 
+        stagger: 0.2, 
+        ease: 'power3.out' 
+      });
+
+      gsap.from('.form-card', { 
+        scrollTrigger: { trigger: '#contact', start: 'top 78%' }, 
+        x: 40, 
+        opacity: 0, 
+        duration: 0.8, 
+        ease: 'power3.out' 
+      });
     });
 
     /* ---- PULSE BUTTON ---- */
@@ -1901,7 +2753,7 @@
       const n = this.name.value.trim(), em = this.email.value.trim(), msg = this.message.value.trim();
       const st = document.getElementById('formStatus');
       if (!n || !em || !msg) { st.textContent = 'Please fill in all fields.'; st.style.color = 'var(--violet-lt)'; return; }
-      st.textContent = '✦ Message transmitted successfully!'; st.style.color = 'var(--teal)';
+      st.textContent = '<i class="ph-fill ph-sparkle"></i> Message transmitted successfully!'; st.style.color = 'var(--teal)';
       this.reset();
     });
 
@@ -1917,6 +2769,114 @@
       iCard.addEventListener('mouseleave', () => { iCard.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)'; });
     }
   </script>
+  <!-- === Basith AI Chatbot Widget === -->
+  <div id="basith-ai-widget"
+    style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: 'Inter', sans-serif;">
+    <div id="basith-ai-chat"
+      style="display: none; width: 350px; height: 500px; background: rgba(11, 15, 31, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(212, 168, 67, 0.3); border-radius: 16px; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 20px rgba(212, 168, 67, 0.1); margin-bottom: 20px; transition: all 0.3s ease;">
+      <div
+        style="background: linear-gradient(135deg, #d4a843, #f5cc6a); padding: 15px 20px; color: #060810; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+          <span
+            style="background: #060810; color: #d4a843; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px;"><i
+              class="ph-fill ph-magic-wand"></i></span>
+          Basith AI
+        </div>
+        <button id="basith-ai-close"
+          style="background: transparent; border: none; color: #060810; font-size: 1.8rem; cursor: pointer; line-height: 1; opacity: 0.7; transition: opacity 0.2s;"
+          onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">&times;</button>
+      </div>
+      <div id="basith-ai-messages"
+        style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scrollbar-width: thin; scrollbar-color: #d4a843 #0b0f1f;">
+        <div
+          style="background: rgba(212, 168, 67, 0.1); border: 1px solid rgba(212, 168, 67, 0.2); padding: 12px 16px; border-radius: 12px 12px 12px 0; color: #eef2ff; max-width: 85%; align-self: flex-start; font-size: 0.95rem; line-height: 1.5;">
+          Hi there! <i class="ph-fill ph-hand-waving"></i> I'm Basith AI. You can ask me anything about Abdul Basith's
+          portfolio, or ask me general
+          questions!
+        </div>
+      </div>
+      <div
+        style="padding: 15px; background: rgba(6, 8, 16, 0.8); border-top: 1px solid rgba(212, 168, 67, 0.15); display: flex; gap: 10px;">
+        <input type="text" id="basith-ai-input" placeholder="Type your message..."
+          style="flex: 1; background: #0b0f1f; border: 1px solid rgba(212, 168, 67, 0.3); padding: 12px 16px; border-radius: 24px; color: #eef2ff; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.3s;"
+          onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='rgba(212, 168, 67, 0.3)'"
+          onkeydown="if(event.key === 'Enter') sendBasithMessage()">
+        <button onclick="sendBasithMessage()"
+          style="background: linear-gradient(135deg, #d4a843, #f5cc6a); color: #060810; border: none; padding: 0 20px; border-radius: 24px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: transform 0.2s ease;"
+          onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <button id="basith-ai-toggle"
+      style="float: right; background: linear-gradient(135deg, #d4a843, #f5cc6a); color: #060810; border: none; padding: 14px 28px; border-radius: 30px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 20px rgba(212, 168, 67, 0.4); display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;"
+      onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 25px rgba(212, 168, 67, 0.6)'"
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(212, 168, 67, 0.4)'">
+      <span style="font-size: 1.3rem;"><i class="ph-fill ph-magic-wand"></i></span> Basith AI
+    </button>
+  </div>
+  <script>
+    const GEMINI_API_KEY = "AQ.Ab8RN6LcA-BkTrEwuH80KQxXpZJlSS1PfWaGaXK1vLeiGxPHFg";
+    const chatContainer = document.getElementById('basith-ai-chat');
+    const toggleBtn = document.getElementById('basith-ai-toggle');
+    const closeBtn = document.getElementById('basith-ai-close');
+    const messagesDiv = document.getElementById('basith-ai-messages');
+    const inputField = document.getElementById('basith-ai-input');
+    toggleBtn.addEventListener('click', () => {
+      const isHidden = window.getComputedStyle(chatContainer).display === 'none';
+      chatContainer.style.display = isHidden ? 'flex' : 'none';
+      if (isHidden) {
+        setTimeout(() => inputField.focus(), 50);
+      }
+    });
+    closeBtn.addEventListener('click', () => { chatContainer.style.display = 'none'; });
+    function addMessage(text, isUser = false) {
+      const msgDiv = document.createElement('div');
+      msgDiv.style.padding = '12px 16px'; msgDiv.style.maxWidth = '85%'; msgDiv.style.fontSize = '0.95rem'; msgDiv.style.lineHeight = '1.5'; msgDiv.style.wordWrap = 'break-word';
+      if (isUser) { msgDiv.style.background = 'linear-gradient(135deg, #d4a843, #f5cc6a)'; msgDiv.style.color = '#060810'; msgDiv.style.borderRadius = '12px 12px 0 12px'; msgDiv.style.alignSelf = 'flex-end'; msgDiv.style.fontWeight = '500'; }
+      else { msgDiv.style.background = 'rgba(212, 168, 67, 0.1)'; msgDiv.style.border = '1px solid rgba(212, 168, 67, 0.2)'; msgDiv.style.color = '#eef2ff'; msgDiv.style.borderRadius = '12px 12px 12px 0'; msgDiv.style.alignSelf = 'flex-start'; }
+      msgDiv.textContent = text; messagesDiv.appendChild(msgDiv); messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+    async function sendBasithMessage() {
+      const text = inputField.value.trim(); if (!text) return;
+      addMessage(text, true); inputField.value = ''; const lowerText = text.toLowerCase();
+      if (lowerText.includes('basith') || lowerText.includes('who are you') || lowerText.includes('portfolio') || lowerText.includes('video') || lowerText.includes('edit')) {
+        setTimeout(() => { addMessage("Abdul Basith is a passionate Video Editor and Motion Designer. He specializes in premium video editing, dynamic motion graphics, and AI video generation. This is his interactive digital workspace! Feel free to explore his projects."); }, 600);
+        return;
+      }
+      if (!GEMINI_API_KEY || GEMINI_API_KEY.length < 10) {
+        setTimeout(() => { addMessage("Please add your Gemini API key in the HTML code to enable general AI answers! <i class='ph-fill ph-magic-wand'></i>"); }, 600);
+        return;
+      }
+      const typingId = 'typing-' + Date.now(); const typingDiv = document.createElement('div');
+      typingDiv.id = typingId; typingDiv.style.color = "#8891b4"; typingDiv.style.fontSize = "0.85rem"; typingDiv.style.fontStyle = "italic"; typingDiv.style.alignSelf = "flex-start"; typingDiv.textContent = "Basith AI is thinking...";
+      messagesDiv.appendChild(typingDiv); messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      const autoModel = 'gemini-3.6-flash';
+
+      try {
+        const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + autoModel + ':generateContent?key=' + GEMINI_API_KEY, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: "You are Basith AI, an assistant on Abdul Basith's personal video editing portfolio. He is a video editor and motion designer. Keep responses concise, friendly, and helpful. The user says: " + text }] }] })
+        });
+        const data = await response.json();
+        document.getElementById(typingId)?.remove();
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
+          addMessage(data.candidates[0].content.parts[0].text);
+        } else {
+          const errorMsg = data.error ? data.error.message : "Unknown error";
+          addMessage("API Error with " + autoModel + ": " + errorMsg);
+        }
+      } catch (error) {
+        document.getElementById(typingId)?.remove();
+        addMessage("Fetch error: " + error.message);
+      }
+    }
+  </script>
+
 </body>
 
 </html>
